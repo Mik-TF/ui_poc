@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="//unpkg.com/htmx.org@1.8.4" defer></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+</head>
+<body x-data="{ activePage: 'home' }" @htmx:afterSwap="activePage = event.detail.target.id" class="flex">
+    <div class="w-1/4 h-screen bg-gray-800 text-white">
+        <div class="p-5">
+            <h1 class="text-xl font-bold">Dashboard</h1>
+        </div>
+        <ul class="mt-5 space-y-2">
+            <li><a href="#" hx-get="/pages/home" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600">Home</a></li>
+            <li><a href="#" hx-get="/pages/profile" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600" @click="activePage = 'profile'">Profile</a></li>
+            <li><a href="#" hx-get="/pages/chat" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600" @click="activePage = 'chat'">Chat</a></li>
+            <li><a href="#" hx-get="/pages/video" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600" @click="activePage = 'video'">Video</a></li>
+            <li><a href="#" hx-get="/pages/calendar" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600" @click="activePage = 'calendar'">Calendar</a></li>
+            <li><a href="#" hx-get="/pages/file_management" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600" @click="activePage = 'file_management'">File Management</a></li>
+            <li><a href="#" hx-get="/pages/settings" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600" @click="activePage = 'settings'">Settings</a></li>
+            <li><a href="#" hx-get="/pages/logout" hx-target="#main-content" hx-push-url="false" class="block p-3 hover:bg-gray-600">Log Out</a></li>
+        </ul>
+    </div>
+    <div id="main-content" class="flex-1 p-10">
+        <h2 class="text-2xl font-semibold" id="home">Welcome to Your Dashboard</h2>
+        <p class="mt-5" id="welcome">Select an option from the menu on the left to get started.</p>
+    </div>
+</body>
+</html>

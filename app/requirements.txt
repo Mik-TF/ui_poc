@@ -1,0 +1,4 @@
+fastapi==0.95.0          # FastAPI version
+uvicorn==0.22.0         # ASGI server
+python-multipart==0.0.6  # For form data parsing
+starlette      # Compatible Starlette version with FastAPI 0.95.0
